@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {addACart, getAllProducts, getProductsOfCategory} from "../api/Api";
-import {IProduct} from "../interfaces/api-interfaces";
+import {Categories, IProduct} from "../interfaces/api-interfaces";
 import {Badge, Button, Card, Image, List, message, Rate, Select, Spin, Typography} from "antd";
 import './Products.scss';
 import LoadingIcon from "antd/es/button/LoadingIcon";
@@ -18,7 +18,8 @@ const Products = () => {
 
     useEffect(() => {
         setProductsLoading(true);
-        (!param?.categoryId ? getAllProducts() : getProductsOfCategory(param.categoryId as string))
+        const categories: string[] = Object.values(Categories);
+        ((!param?.categoryId || !categories.includes(param?.categoryId as string)) ? getAllProducts() : getProductsOfCategory(param.categoryId as string))
             .then(res => setProducts(res.products))
             .then(() => setProductsLoading(false));
     }, [param]);
