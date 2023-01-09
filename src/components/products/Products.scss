@@ -1,0 +1,12 @@
+.productsCard {
+  margin: 8px;
+
+  &__image {
+    height: 150px !important;
+    object-fit: scale-down;
+  }
+
+  &__badge {
+    margin: 8px;
+  }
+}

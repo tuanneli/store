@@ -1,0 +1,16 @@
+.appHeader {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+
+  &__shopping-cart {
+    margin-right: 24px;
+    font-size: 28px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
